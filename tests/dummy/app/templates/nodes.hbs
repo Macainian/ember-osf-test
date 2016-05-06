@@ -1,10 +1,44 @@
 <h4> My Nodes </h4>
+
+{{link-to 'My Dashboard' 'dashboard' class="btn btn-default"}}
+
 {{#each model as |node|}}
-<hr />
-<div class="panel">
-  <p><label>Title: </label>{{node.title}}</p>
-  <p><label>Category: </label>{{node.category}}</p>
-  <p><label>Date Created: </label>{{moment-format node.dateCreated}}</p>
-  <p><label>Date Modified: </label>{{moment-format node.dateModified}}</p>
-</div>
+    <hr />
+    <div class="panel">
+        <p><label> Title: </label> {{node.title}} </p>
+        <p><label> Description: </label> {{node.description}} </p>
+        <p><label> Category: </label> {{node.category}} </p>
+
+        <p><label> Current User Permissions: </label> {{node.currentUserPermissions}} </p>
+
+        <p><label> Is a Fork: </label> {{node.fork}} </p>
+        <p><label> Is a Collection: </label> {{node.collection}} </p>
+        <p><label> Is Registrated: </label> {{node.registration}} </p>
+        <p><label> Is Public: </label> {{node.public}} </p>
+
+        <p><label> Date Created: </label> {{moment-format node.dateCreated}} </p>
+        <p><label> Date Modified: </label> {{moment-format node.dateModified}} </p>
+
+        <!--<p><label> tags: </label> {{node.tags}} </p>-->
+
+        <!--<p><label> templateFrom: </label> {{node.templateFrom}} </p>-->
+
+        <p><label> Parent: </label> {{node.parent}} </p>
+        <p>
+            <label> Children: </label>
+            {{#each node.children as |child|}}
+                {{child.title}}
+            {{/each}}
+        </p>
+
+        <!--<p><label> comments: </label> {{node.comments}} </p>-->
+        <!--<p><label> contributors: </label> {{node.contributors}} </p>-->
+        <!--<p><label> files: </label> {{node.files}} </p>-->
+        <p><label> Forked From: </label> {{node.forkedFrom}} </p>
+        <!--<p><label> nodeLinks: </label> {{node.nodeLinks}} </p>-->
+        <!--<p><label> registrations: </label> {{node.registrations}} </p>-->
+        <!--<p><label> primaryInstitution: </label> {{node.primaryInstitution}} </p>-->
+        <!--<p><label> root: </label> {{node.root}} </p>-->
+        <!--<p><label> logs: </label> {{node.logs}} </p>-->
+    </div>
 {{/each}}

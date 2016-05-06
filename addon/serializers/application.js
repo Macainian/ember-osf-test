@@ -5,8 +5,10 @@ export default DS.JSONAPISerializer.extend({
     _normalizeAttributes(attributes) {
         var normalized = {};
         Object.keys(attributes).forEach(function(key) {
+            console.log(key);
             normalized[Ember.String.camelize(key)] = attributes[key];
         });
+        console.log("NEXT NEXT NEXT NEXT NEXT NEXT NEXT NEXT NEXT NEXT NEXT NEXT NEXT NEXT NEXT NEXT NEXT NEXT NEXT ");
         return normalized;
     },
     normalizeSingleResponse(_, __, payload) {

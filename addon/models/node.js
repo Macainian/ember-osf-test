@@ -20,21 +20,24 @@ export default DS.Model.extend({
     templateFrom: DS.attr('string'),
 
     // TODO?
-    // links = LinksField({'html': 'get_absolute_html_url'})
+    // links = LinksField({'html': 'get_absolute_html_url'}),
 
     parent: DS.belongsTo('node', {
         inverse: 'children'
     }),
-    children: DS.hasMany('nodes', {
+    children: DS.hasMany('node', {
         inverse: 'parent'
     }),
-    //comments: DS.hasMany('comments'),
-    //contributors: DS.hasMany('node-contributors')
-    //files: DS.hasMany('files'),
-    //forkedFrom: DS.belongsTo('node'),
-    //nodeLinks:  DS.hasMany('node-pointers'),
-    //registrations: DS.hasMany('registrations'),
-    //primaryInistution: DS.belongsTo('institution'),
-    root: DS.belongsTo('node')
-    //logs: DS.hasMany('node-logs'),
+    
+    // comments: DS.hasMany('comments'),
+    // contributors: DS.hasMany('node-contributors'),
+    // files: DS.attr('file'),
+    files: DS.hasMany('files'),
+    providers: DS.hasMany('providers'),
+    forkedFrom: DS.belongsTo('node')
+    // nodeLinks:  DS.hasMany('node-pointers'),
+    // registrations: DS.hasMany('registrations'),
+    // primaryInstitution: DS.belongsTo('institution'),
+    // root: DS.belongsTo('node'),
+    // logs: DS.hasMany('node-logs')
 });
